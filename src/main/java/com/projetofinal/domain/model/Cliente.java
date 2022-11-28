@@ -2,7 +2,7 @@ package com.projetofinal.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projetofinal.application.dtos.ClientePostDTO;
-import com.projetofinal.infrastructure.utils.EncryptPassword;
+import com.projetofinal.infrastructure.utils.EncryptEncoder;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -33,8 +33,7 @@ public class Cliente {
         cliente.setNome(dto.getNome());
         cliente.setEmail(dto.getEmail());
         cliente.setTelefone(dto.getTelefone());
-        cliente.setSenha(EncryptPassword.passwordEncoder(dto.getSenha()));
-
+        cliente.setSenha(EncryptEncoder.getHashMd5(dto.getSenha()));
         return cliente;
     }
 }

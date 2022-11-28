@@ -13,14 +13,13 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ClienteServiceImpl implements ClienteService {
-
     private final ClienteRepository clienteRepository;
 
     @Override
     public ClienteGetDTO create(ClientePostDTO dto) {
         validaTelefone(dto.getTelefone());
         validaEmail(dto.getEmail());
-       return ClienteGetDTO.novo(clienteRepository.save(Cliente.novo(dto)), "Cliente cadastrado com sucesso");
+        return ClienteGetDTO.novo(clienteRepository.save(Cliente.novo(dto)), "Cliente cadastrado com sucesso");
     }
 
     private void validaTelefone(String telefone) {

@@ -13,4 +13,6 @@ public interface ClienteRepository extends MongoRepository<Cliente, String> {
 
     @Query("{email :  ?0}")
     Optional<Cliente> findByEmail(String email);
+
+    Optional<Cliente> findByEmailAndSenha(String email, String senha);
 }

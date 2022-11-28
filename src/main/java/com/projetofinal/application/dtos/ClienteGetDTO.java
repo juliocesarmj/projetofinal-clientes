@@ -22,4 +22,11 @@ public class ClienteGetDTO {
         dto.setMensagem(mensagem);
         return dto;
     }
+    public static ClienteGetDTO novo(Cliente cliente) {
+        ClienteGetDTO dto = new ClienteGetDTO();
+        dto.setNome(cliente.getNome());
+        dto.setTelefone(cliente.getTelefone());
+        dto.setEmail(cliente.getEmail());
+        return dto;
+    }
 }
