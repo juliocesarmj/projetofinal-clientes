@@ -30,8 +30,5 @@ public class AuthService {
             return AuthResponseDto.novo("Usuário autenticado", tokenAuthentication.generateToken(cliente.getEmail(), "ROLE_CLIENTE"), cliente);
         }
         throw new ArgumentoInvalidoException("Usuário ou senha inválidos");
-
     }
-
-
 }
